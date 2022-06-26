@@ -1,19 +1,19 @@
 {
-  "name": "evan_pub",
-  "version": "1.0.0",
-  "description": "basic prod version for web",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/dusiko/evan_pub.git"
-  },
-  "author": "zheka_yura@ukr.net",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/dusiko/evan_pub/issues"
-  },
-  "homepage": "https://github.com/dusiko/evan_pub#readme"
+	"name": "evan_pub",
+	"version": "1.0.0",
+	"description": "basic prod version for web",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/dusiko/evan_pub.git"
+	},
+	"author": "zheka_yura@ukr.net",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/dusiko/evan_pub/issues"
+	},
+	"homepage": "https://github.com/dusiko/evan_pub#readme"
 }
