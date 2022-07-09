@@ -112,6 +112,11 @@
 	display: flex;
 }
 
+.new {
+	flex-direction: column;
+	text-align: center;
+}
+
 .video-block__item-video {
 	flex-basis: 100%;
 	max-height: 382px;
