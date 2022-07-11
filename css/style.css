@@ -110,6 +110,33 @@
 	margin-bottom: 30px;
 	flex-basis: 45%;
 	display: flex;
+	position: relative;
+}
+
+.video-bg {
+	position: absolute;
+	z-index: -2;
+	background-color: #000;
+	width: 100%;
+	height: 100%;
+}
+
+.video-bg__load {
+	background-image: url("../images/loading.gif");
+	background-color: transparent;
+	background-size: 50%;
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 50%;
+	height: 50%;
+	overflow: auto;
+	margin: auto;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	z-index: -1;
 }
 
 .video-block__item-video {
