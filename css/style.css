@@ -55,7 +55,6 @@
 
 .intro__text-subdonat {
 	font-style: italic;
-	margin-bottom: 25px;
 }
 
 .intro__nav {
@@ -99,19 +98,47 @@
 	font-weight: bold;
 }
 
+
+/*===== VIDEO LIST =======
+==========================*/
+
 .video-block__inner {
+	margin-top: 25px;
 	display: flex;
-	flex-wrap: wrap;
 	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	padding: 0 25px;
 }
 
-.video-block__item {
-	margin-right: 30px;
-	margin-bottom: 30px;
-	flex-basis: 45%;
-	display: flex;
-	position: relative;
+.video-new {
+	width: 100%;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid rgb(176, 175, 175);
+	border-top: 1px solid rgb(176, 175, 175);
 }
+
+.video-new__title,
+.video-list__title {
+	font-size: 32px;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+
+
+.video-list__inner {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 30px;
+}
+
+.video-list {
+	width: 100%;
+	margin-top: 20px;
+}
+
 
 .video-bg {
 	position: absolute;
@@ -124,11 +151,11 @@
 .video-bg__load {
 	background-image: url("../images/loading.gif");
 	background-color: transparent;
-	background-size: 50%;
+	background-size: 15%;
 	background-repeat: no-repeat;
 	background-position: center;
-	width: 50%;
-	height: 50%;
+	width: 100%;
+	height: 100%;
 	overflow: auto;
 	margin: auto;
 	position: absolute;
@@ -137,6 +164,12 @@
 	bottom: 0;
 	right: 0;
 	z-index: -1;
+}
+
+
+.video-block__item {
+	display: flex;
+	position: relative;
 }
 
 .video-block__item-video {
@@ -163,11 +196,15 @@
 	transition: .2s;
 }
 
+/*=====================
+======================*/
+
 .footer {
 	height: 80px;
 	display: flex;
 	align-items: center;
 	background-color: #d8d8d8;
+	margin-top: 25px;
 }
 
 .footer__text {
@@ -214,6 +251,12 @@
 	}
 }
 
+@media (max-width: 700px) {
+	.video-list__inner {
+		grid-template-columns: 1fr;
+	}
+}
+
 @media (max-width: 456px) {
 	.intro__nav-link {
 		width: 80%;
@@ -235,11 +278,25 @@
 		flex-direction: column;
 	}
 
+	.video-block__inner {
+		padding: 0 10px;
+	}
+
+	.video-new {
+		min-width: auto;
+	}
+
 	.video-block__item-video {
 		min-height: 200px;
 	}
 
 	.video-block__btn {
 		font-size: 12px;
+	}
+
+	.video-bg__load {
+		width: 50%;
+		height: 50%;
+		background-size: 50%;
 	}
 }
