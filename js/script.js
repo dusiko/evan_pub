@@ -47,17 +47,20 @@ function lazyLoad() {
 	if (options.mobile) {
 		const position = scrollY
 		console.log(position)
-		if (position > 600 && options.stepOfScroll === 1) {
+		if (position > 800 && options.stepOfScroll === 1) {
 			createItem(videoList, 2, 6)
 			options.stepOfScroll++
-		} else if (position > 1200 && options.stepOfScroll === 2) {
+		} else if (position > 1400 && options.stepOfScroll === 2) {
 			createItem(videoList, 5, 9)
 			options.stepOfScroll++
-		} else if (position > 1800 && options.stepOfScroll === 3) {
+		} else if (position > 2000 && options.stepOfScroll === 3) {
 			createItem(videoList, 8, 12)
 			options.stepOfScroll++
-		} else if (position > 2400 && options.stepOfScroll === 4) {
-			createItem(videoList, 11)
+		} else if (position > 2600 && options.stepOfScroll === 4) {
+			createItem(videoList, 11, 15)
+			options.stepOfScroll++
+		} else if (position > 3200 && options.stepOfScroll === 5) {
+			createItem(videoList, 14)
 			options.stepOfScroll++
 		}
 	}
