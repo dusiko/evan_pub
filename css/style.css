@@ -11,6 +11,7 @@
 	color: #fff;
 	height: 100px;
 	position: relative;
+	padding-bottom: 20px;
 }
 
 .header__logo {
@@ -33,6 +34,17 @@
 	padding-top: 50px;
 	font-weight: normal;
 	font-size: 24px;
+	display: flex;
+	flex-direction: column;
+}
+
+.header__title-blue {
+	color: #4287f5;
+}
+
+.header__title-yellow {
+	color: #e6dc2e;
+	margin-top: 10px;
 }
 
 .intro__inner {
@@ -230,24 +242,6 @@
 
 	.video-block__item:nth-child(odd) {
 		margin-right: 0;
-	}
-
-	.header {
-		padding-bottom: 20px;
-	}
-
-	.header__title {
-		display: flex;
-		flex-direction: column;
-	}
-
-	.header__title-blue {
-		color: #4287f5;
-	}
-
-	.header__title-yellow {
-		color: #e6dc2e;
-		margin-top: 10px;
 	}
 }
 

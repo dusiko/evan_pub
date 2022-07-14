@@ -1,11 +1,13 @@
 document.querySelector('.intro__text-subdonat').addEventListener('click', copyCardNum)
 
+let detect = new MobileDetect(window.navigator.userAgent)
+
 const options = {
 	mobile: false,
 	stepOfScroll: 1,
+	videoListCount: document.querySelector('.video-list__inner').children.length,
 }
-
-let detect = new MobileDetect(window.navigator.userAgent)
+optimizationForMobil()
 
 
 function copyCardNum(event) {
@@ -36,36 +38,79 @@ function optimizationForMobil() {
 		$videoListArr = $videoListArr.slice(1)
 		displayVideo = $videoListArr
 		$videoListArr.forEach((item, i) => {
-			if (i > 2)
+			if (i > 1)
 				item.remove()
 		})
-		window.addEventListener('scroll', lazyLoad);
+		const element = document.querySelector('.footer');
+		window.addEventListener('scroll', () => footerInVisibleArea(element))
+		footerInVisibleArea(element)
 	}
 }
 
-function lazyLoad() {
+
+function footerInVisibleArea(target) {
+
+	// Все позиции элемента
+	const targetPosition = {
+		top: window.pageYOffset + target.getBoundingClientRect().top,
+		left: window.pageXOffset + target.getBoundingClientRect().left,
+		right: window.pageXOffset + target.getBoundingClientRect().right,
+		bottom: window.pageYOffset + target.getBoundingClientRect().bottom
+	},
+		// Получаем позиции окна
+		windowPosition = {
+			top: window.pageYOffset,
+			left: window.pageXOffset,
+			right: window.pageXOffset + document.documentElement.clientWidth,
+			bottom: window.pageYOffset + document.documentElement.clientHeight
+		};
+
+	if (targetPosition.bottom > windowPosition.top && // Если позиция нижней части элемента больше позиции верхней чайти окна, то элемент виден сверху
+		targetPosition.top < windowPosition.bottom && // Если позиция верхней части элемента меньше позиции нижней чайти окна, то элемент виден снизу
+		targetPosition.right > windowPosition.left && // Если позиция правой стороны элемента больше позиции левой части окна, то элемент виден слева
+		targetPosition.left < windowPosition.right) { // Если позиция левой стороны элемента меньше позиции правой чайти окна, то элемент виден справа
+		// Если элемент полностью видно, то запускаем следующий код
+		addMoreVideo()
+	} else {
+		// Если элемент не видно, то запускаем этот код
+		// console.clear();
+	};
+}
+
+
+// А также запустим функцию сразу. А то вдруг, элемент изначально видно
+
+
+function addMoreVideo() {
 	if (options.mobile) {
-		const position = scrollY
-		console.log(position)
-		if (position > 800 && options.stepOfScroll === 1) {
-			createItem(videoList, 2, 6)
+		if (options.stepOfScroll === 1) {
+			createItem(videoList, 1, 4)
 			options.stepOfScroll++
-		} else if (position > 1400 && options.stepOfScroll === 2) {
-			createItem(videoList, 5, 9)
+		} else if (options.stepOfScroll === 2) {
+			createItem(videoList, 3, 6)
 			options.stepOfScroll++
-		} else if (position > 2000 && options.stepOfScroll === 3) {
-			createItem(videoList, 8, 12)
+		} else if (options.stepOfScroll === 3) {
+			createItem(videoList, 5, 8)
 			options.stepOfScroll++
-		} else if (position > 2600 && options.stepOfScroll === 4) {
-			createItem(videoList, 11, 15)
+		} else if (options.stepOfScroll === 4) {
+			createItem(videoList, 7, 10)
 			options.stepOfScroll++
-		} else if (position > 3200 && options.stepOfScroll === 5) {
-			createItem(videoList, 14)
+		} else if (options.stepOfScroll === 5) {
+			createItem(videoList, 9, 12)
+			options.stepOfScroll++
+		} else if (options.stepOfScroll === 6) {
+			createItem(videoList, 11, 14)
+			options.stepOfScroll++
+		} else if (options.stepOfScroll === 7) {
+			createItem(videoList, 13, 16)
+			options.stepOfScroll++
+		} else if (options.stepOfScroll === 8) {
+			createItem(videoList, 15)
 			options.stepOfScroll++
 		}
 	}
 }
-optimizationForMobil()
+
 
 function createItem(list, start, end = videoList.length) {
 	const parent = document.querySelector('.video-list__inner')
